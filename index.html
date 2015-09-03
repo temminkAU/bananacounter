@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bananas</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="Demo project with jQuery">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="bananas.css">
+		<style type="text/css"></style>
+	</head>
+	<body>
+
+
+	<div id="player"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h1>Daily Banana Toxicity</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="banana-container col-sm-12 col-lg-6">
+					<form>
+						<div class="row">
+							<input type='checkbox' name='thing' value='valuable' id="thing1"/><label for="thing1"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing2"/><label for="thing2"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing3"/><label for="thing3"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing4"/><label for="thing4"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing5"/><label for="thing5"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing6"/><label for="thing6"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing7"/><label for="thing7"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing8"/><label for="thing8"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing9"/><label for="thing9"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing10"/><label for="thing10"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing11"/><label for="thing11"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing12"/><label for="thing12"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing13"/><label for="thing13"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing14"/><label for="thing14"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing15"/><label for="thing15"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing16"/><label for="thing16"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing17"/><label for="thing17"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing18"/><label for="thing18"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing19"/><label for="thing19"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing20"/><label for="thing20"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing21"/><label for="thing21"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing22"/><label for="thing22"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing23"/><label for="thing23"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing24"/><label for="thing24"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing25"/><label for="thing25"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing26"/><label for="thing26"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing27"/><label for="thing27"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing28"/><label for="thing28"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing29"/><label for="thing29"></label>
+							<input type='checkbox' name='thing' value='valuable' id="thing30"/><label for="thing30"></label>
+						</div>
+					</form>
+				</div>
+				<div class="toxicity-container col-sm-12 col-lg-6">
+					<div class="toxicity-meter">
+						<div class="meter-fill"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="preload">
+			<img src="img/banana-glow.png" />
+			<img src="img/banana-eaten.png" />
+			<img src="img/toxicity-final.png" />
+			<object src="media/nom.mp3" />
+			<object src="media/wilhelm.mp3" />
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.playSound.js"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			
+		});
+
+		$(document).on('ready', function(){
+			$(':checkbox').on('change', function(){
+				$.playSound('media/nom');
+				var percent = $(':checked').length / 30 * 100;
+				$('.meter-fill').height(percent + '%');
+
+				if (percent == 100) {
+					$('.meter-fill').css('background-image', 'url(img/toxicity-final.png)');
+					$.playSound('media/wilhelm');
+					$('.container').delay(3000).fadeOut(function(){
+						window.location.href="video.html";
+					});
+
+					
+				}
+			})
+		})
+
+
+	</script>
+</html>
